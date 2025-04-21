@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+      line-height: 1.6;
+      padding-top: 50px;
+      margin: 0;
+    }
+
+    header {
+      background-color: #2D3E50;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+      border-bottom: 3px solid #4CAF50;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    header p {
+      font-size: 1.5rem;
+    }
+
+    .container {
+      width: 85%;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    .section {
+      background-color: white;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #4CAF50;
+      border-bottom: 3px solid #4CAF50;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card h3 {
+      font-size: 1.8rem;
+      color: #333;
+    }
+
+    .project-card p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      color: #2D3E50;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: 2px solid #4CAF50;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .project-card a:hover {
+      background-color: #4CAF50;
+      color: #fff;
+    }
+
+    .pagination {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .pagination button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1.1rem;
+    }
+
+    .pagination button:hover {
+      background-color: #45a049;
+    }
+
+    footer {
+      background-color: #2D3E50;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header p {
+        font-size: 1.3rem;
+      }
+
+      .section h2 {
+        font-size: 1.8rem;
+      }
+
+      .project-card h3 {
+        font-size: 1.5rem;
+      }
+
+      .project-card p {
+        font-size: 1rem;
+      }
+
+      .pagination button {
+        padding: 10px 20px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>John Doe</h1>
+    <p>Full-Stack Web Developer</p>
+  </header>
+
+  <div class="container">
+    
+    <!-- About Me Section -->
+    <div class="section">
+      <h2>About Me</h2>
+      <p>Hello, I'm John Doe, a passionate web developer with a keen interest in building dynamic and responsive websites. I have experience in both front-end and back-end technologies, and I strive to create applications that are user-friendly, performant, and accessible.</p>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="section projects">
+      <h2>Projects</h2>
+      <ul id="project-list">
+        <!-- Dynamic Content Will Be Loaded Here -->
+      </ul>
+
+      <!-- Pagination Controls -->
+      <div class="pagination">
+        <button id="prev-btn" onclick="changePage('prev')">Previous</button>
+        <button id="next-btn" onclick="changePage('next')">Next</button>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section">
+      <h2>Contact Me</h2>
+      <p>If you'd like to get in touch, feel free to reach out to me via email or check out my social media links!</p>
+      <a href="mailto:john.doe@example.com">Email Me</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 John Doe | All Rights Reserved</p>
+    <div class="social-icons">
+      <a href="https://linkedin.com/in/johndoe" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/johndoe" target="_blank">GitHub</a>
+    </div>
+  </footer>
+
+  <script>
+    const projects = [
+      { title: "Portfolio Website", description: "A personal portfolio website to showcase my skills and projects.", link: "#" },
+      { title: "Task Management App", description: "A web application to manage tasks and to-do lists with authentication.", link: "#" },
+      { title: "Weather Dashboard", description: "An interactive weather dashboard that fetches live data using an API.", link: "#" },
+      { title: "E-commerce Website", description: "An e-commerce website with product listing, cart, and checkout functionality.", link: "#" },
+      { title: "Blog Platform", description: "A platform for users to create and share blogs with full CRUD functionality.", link: "#" },
+      { title: "Real-Time Chat Application", description: "A real-time chat application using WebSockets for instant messaging.", link: "#" }
+    ];
+
+    let currentPage = 1;
+    const projectsPerPage = 2;
+    const totalProjects = projects.length;
+    const totalPages = Math.ceil(totalProjects / projectsPerPage);
+
+    // Function to load projects for the current page
+    function loadProjects() {
+      const projectList = document.getElementById("project-list");
+      projectList.innerHTML = '';
+
+      // Calculate the start and end index based on the current page
+      const startIndex = (currentPage - 1) * projectsPerPage;
+      const endIndex = startIndex + projectsPerPage;
+
+      for (let i = startIndex; i < endIndex && i < projects.length; i++) {
+        const project = projects[i];
+        const listItem = document.createElement("li");
+        listItem.classList.add("project-card");
+
+        listItem.innerHTML = `
+          <div>
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+          </div>
+          <a href="${project.link}">View Project</a>
+        `;
+
+        projectList.appendChild(listItem);
+      }
+
+      // Update the pagination buttons' visibility
+      document.getElementById("prev-btn").disabled = currentPage === 1;
+      document.getElementById("next-btn").disabled = currentPage === totalPages;
+    }
+
+    // Function to change the page
+    function changePage(direction) {
+      if (direction === "prev" && currentPage > 1) {
+        currentPage--;
+      } else if (direction === "next" && currentPage < totalPages) {
+        currentPage++;
+      }
+
+      loadProjects();
+    }
+
+    // Initial load of projects
+    loadProjects();
+  </script>
+
+</body>
+</html>
